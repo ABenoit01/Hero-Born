@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 4897933540676599554}
   - component: {fileID: 7589668430978892249}
   - component: {fileID: 7542612291697086497}
+  - component: {fileID: 5197304910661692553}
   - component: {fileID: 4377731391534339102}
+  - component: {fileID: 5081106751529124778}
   m_Layer: 0
   m_Name: Health_Pickup
   m_TagString: Untagged
@@ -104,10 +106,22 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5197304910661692553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7764805415164714143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc3854504b0c494b905fe7e8e5ed2df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &4377731391534339102
 Animator:
   serializedVersion: 5
@@ -129,3 +143,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5081106751529124778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7764805415164714143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeead1a7b1d0f9046a25bba5275a6057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

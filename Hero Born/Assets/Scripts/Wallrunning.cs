@@ -1,14 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class Wallrunning : MonoBehaviour
 {
-
-   //did animation for movement instead lool
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +15,4 @@ public class MovingPlatform : MonoBehaviour
     {
         
     }
-   
-
-
 }
-
-

@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     bool jumpReady;
-
+    bool pressingJump;
     //keybinds
     public KeyCode jumpKey = KeyCode.Space; 
 
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public float playerHeight;
     public LayerMask whatIsGround;
     bool grounded;
-
+    bool groundedtf;
     public Transform orientation;
 
     float horizontalInput;
@@ -37,20 +37,36 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-
+        jumpReady = true;
     }
     private void Update()
     {
         //ground check 2
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-       
+
+        //jumpcheck
+        if (Input.GetKey(KeyCode.Space))
+        {
+            //Debug.Log("jump is being pressed");
+            pressingJump = true;
+        }
+        else
+        {
+            pressingJump = false;
+        }
         MyInput();
         SpeedControl();
         //drag to not move like a penguin
         if (grounded)
+        {
             rb.drag = groundDrag;
+        }
+
         else
+        {
             rb.drag = 0f;
+        }
+            
     }
     private void FixedUpdate()
     {
@@ -60,12 +76,12 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-    
+
         //when to jump
-        if(Input.GetKey(jumpKey) && jumpReady && grounded)
+        if (pressingJump == true && jumpReady == true && groundedtf == true)
         {
             jumpReady = false;
-
+            //Debug.Log("we are trying to jump");
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
@@ -80,11 +96,19 @@ public class PlayerController : MonoBehaviour
 
         //on ground
         if (grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            //Debug.Log("grounded");
+            groundedtf = true;
+        }
+            
 
         //in air
         else if (!grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            groundedtf = false;
+        }
 
     }        
     
@@ -104,6 +128,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        //Debug.Log("jumping?");
         //fix y vel
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 

@@ -28,7 +28,7 @@ public class MoveLevel1 : MonoBehaviour
     {
         levelCounter++;
         SceneManager.LoadScene(getCurrentLevelName());
-        
+     //get level and then increase level # then load next   
     }
     private static string getCurrentLevelName()
     {

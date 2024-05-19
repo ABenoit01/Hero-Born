@@ -17,9 +17,9 @@ public class Wallrunning : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {       //moves object every frame
+    {       //moves object every not frame now bc delta time
         //
-        transform.position += new Vector3(0, 0, 1);
+        transform.position += new Vector3(0, 0, 1) * Time.deltaTime;
     }
         
 

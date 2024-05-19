@@ -21,7 +21,7 @@ public class GrapplingGun : MonoBehaviour
     }
 
     void Update()
-    {
+    {//inputs
         if (Input.GetMouseButtonDown(0))
         {
             StartGrapple();
